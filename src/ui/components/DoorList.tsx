@@ -39,6 +39,11 @@ const columns: GridColDef<Door>[] = [
       return <Typography color={status.color}>{status.label}</Typography>;
     },
   },
+  {
+    field: 'lastConnectionStatusUpdate',
+    headerName: 'Last Connection status update',
+    flex: 1,
+  },
 ];
 
 export function DoorList({ doors }: DoorListProps) {

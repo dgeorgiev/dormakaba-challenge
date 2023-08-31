@@ -4,6 +4,7 @@ import { EntityMapper } from '@/server/lib/EntityMapper';
 import { DoorDto } from '@/__mocks__/dtos/DoorDto';
 import { BuildingDto } from '@/__mocks__/dtos/BuidlingDto';
 import { ApartmentDto } from '@/__mocks__/dtos/ApartmentDto';
+import { DateTime } from 'luxon';
 
 type BuildingDtosById = Record<string, BuildingDto>;
 export type ApartmentDtosById = Record<string, ApartmentDto>;
@@ -23,13 +24,17 @@ export class DoorMapper implements EntityMapper<Door, DoorDto> {
       ? this.getApartmentName(apartmentDtosById, doorDto.apartment_id)
       : 'n/a';
 
+    const date = DateTime.fromISO(
+      doorDto.last_connection_status_update,
+    ).toLocaleString(DateTime.DATETIME_SHORT);
+
     return {
       id: doorDto.id,
       name: doorDto.name,
       buildingName,
       connectionType: doorDto.connection_type,
       connectionStatus: doorDto.connection_status,
-      lastConnectionStatusUpdate: doorDto.last_connection_status_update,
+      lastConnectionStatusUpdate: date,
       apartmentName,
     };
   }
