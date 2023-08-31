@@ -7,3 +7,14 @@ export interface DoorDto {
   building_id: string;
   apartment_id?: string;
 }
+
+export const statusesMap = {
+  online: {
+    color: 'success.main',
+    label: 'online',
+  },
+  offline: {
+    color: 'error.main',
+    label: 'offline',
+  },
+};

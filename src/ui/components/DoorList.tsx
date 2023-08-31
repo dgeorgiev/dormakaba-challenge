@@ -3,21 +3,11 @@ import { useCallback } from 'react';
 import { Door } from '@/models/Door';
 import { DataGrid, GridColDef, GridRowParams } from '@mui/x-data-grid';
 import Typography from '@mui/material/Typography';
+import { statusesMap } from '@/__mocks__/dtos/DoorDto';
 
 interface DoorListProps {
   doors: Door[];
 }
-
-const statusesMap = {
-  online: {
-    color: 'success.main',
-    label: 'online',
-  },
-  offline: {
-    color: 'error.main',
-    label: 'offline',
-  },
-};
 
 const columns: GridColDef<Door>[] = [
   {
