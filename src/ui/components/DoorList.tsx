@@ -8,6 +8,17 @@ interface DoorListProps {
   doors: Door[];
 }
 
+const statusesMap = {
+  online: {
+    color: 'success.main',
+    label: 'online',
+  },
+  offline: {
+    color: 'error.main',
+    label: 'offline',
+  },
+};
+
 const columns: GridColDef<Door>[] = [
   {
     field: 'name',
@@ -33,9 +44,9 @@ const columns: GridColDef<Door>[] = [
     field: 'connectionStatus',
     headerName: 'Connection status',
     flex: 1,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     renderCell: ({ row: door }) => {
-      return <Typography color="success.main">online</Typography>;
+      const status = statusesMap[door.connectionStatus];
+      return <Typography color={status.color}>{status.label}</Typography>;
     },
   },
 ];
