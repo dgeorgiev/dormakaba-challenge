@@ -4,8 +4,6 @@ import { DetailPageContainer } from '@/ui/layout/DetailPageContainer';
 import { DetailPageItem } from '@/ui/layout/DetailPageItem';
 import { statusesMap } from '@/__mocks__/dtos/DoorDto';
 
-import { DateTime } from 'luxon';
-
 interface DoorDetailProps {
   door: Door;
 }
